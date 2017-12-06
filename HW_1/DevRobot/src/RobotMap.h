@@ -42,4 +42,11 @@ public:
 
 	static void init();
 };
+
+#define LEFT_FRONT_CAN   1
+#define LEFT_REAR_CAN    2
+#define RIGHT_FRONT_CAN  3
+#define RIGHT_REAR_CAN   4
+
+
 #endif

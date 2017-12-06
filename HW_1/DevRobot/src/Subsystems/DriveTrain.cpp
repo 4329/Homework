@@ -44,3 +44,27 @@ void DriveTrain::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 
+
+void DriveTrain::Initialize_Teleop()
+{
+	leftFrontMotor->SetControlMode(CANSpeedController::kPercentVbus);
+	rightFrontMotor->SetControlMode(CANSpeedController::kPercentVbus);
+
+	leftRearMotor->SetControlMode(CANSpeedController::kFollower);
+	rightRearMotor->SetControlMode(CANSpeedController::kFollower);
+
+	leftRearMotor->Set(LEFT_FRONT_CAN);
+	rightRearMotor->Set(RIGHT_FRONT_CAN);
+}
+
+void DriveTrain::Teleop_Tank(double left, double right)
+{
+	leftFrontMotor->Set(left);
+	rightFrontMotor->Set(right);
+}
+
+void DriveTrain::Teleop_Arcade(double forward, double turn)
+{
+	driveTrainMotors->ArcadeDrive(forward,turn,true);
+}
+
